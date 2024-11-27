@@ -1,0 +1,181 @@
+[
+  {
+    "phone": "0123456789",
+    "email": "utilisateur@example.com",
+    "referralCode": "PARRAIN001",
+    "otp": "123456",
+    "uniqueCode": "ABCDE",
+    "date": "2024-11-23T12",
+    "balance": 1000
+  },
+  {
+    "phone": "22654545454",
+    "email": "qwerfghn@gmail.com",
+    "referralCode": "12345",
+    "otp": "654321",
+    "uniqueCode": "PWS1I",
+    "date": "2024-11-25T08"
+  },
+  {
+    "phone": "22611111111",
+    "email": "qwerfv@gmail.com",
+    "referralCode": "1111",
+    "otp": "1111",
+    "uniqueCode": "20JEM",
+    "date": "2024-11-25T11:03:50.492Z",
+    "balance": 2000
+  },
+  {
+    "phone": "22622222222",
+    "email": "qwer@gmail.com",
+    "referralCode": "20JEM",
+    "otp": "2222",
+    "uniqueCode": "CU8F2",
+    "date": "2024-11-25T11:20:24.851Z",
+    "balance": 0
+  },
+  {
+    "phone": "22612121212",
+    "email": "qwerty@gmail.com",
+    "referralCode": "20JEM",
+    "otp": "1234",
+    "uniqueCode": "MBLDR",
+    "date": "2024-11-25T11:51:54.576Z",
+    "balance": 0
+  },
+  {
+    "phone": "22655555555",
+    "email": "sdfgh@gmail.com",
+    "referralCode": "20JEM",
+    "otp": "6543",
+    "uniqueCode": "D5ZAK",
+    "date": "2024-11-25T12:13:36.820Z",
+    "balance": 500
+  },
+  {
+    "phone": "22677777777",
+    "email": "poiuyt@gmail.com",
+    "referralCode": "20JEM",
+    "otp": "2222",
+    "uniqueCode": "D372A",
+    "date": "2024-11-25T21:58:44.372Z",
+    "balance": 0
+  },
+  {
+    "phone": "22655555555",
+    "email": "qwert@gmail.com",
+    "referralCode": "20JEM",
+    "otp": "09876",
+    "uniqueCode": "9EOJG",
+    "date": "2024-11-25T22:04:15.987Z",
+    "balance": 0
+  },
+  {
+    "phone": "22676767676",
+    "email": "qwdfb@gmail.com",
+    "referralCode": "D5ZAK",
+    "otp": "12345",
+    "uniqueCode": "Y9YLN",
+    "date": "2024-11-26T16:16:03.681Z",
+    "balance": 500
+  },
+  {
+    "phone": "22655555555",
+    "email": "kjhgfd@gmail.com",
+    "referralCode": "Y9YLN",
+    "otp": "8765",
+    "uniqueCode": "C12OP",
+    "date": "2024-11-26T16:23:06.919Z",
+    "balance": 0
+  },
+  {
+    "phone": "22600000000",
+    "email": "pokjhb@gmail.com",
+    "referralCode": "20JEM",
+    "otp": "5555",
+    "uniqueCode": "MOZ0S",
+    "date": "2024-11-26T16:37:05.573Z",
+    "balance": 1500
+  },
+  {
+    "phone": "22609090909",
+    "email": "oiuytre@gmail.com",
+    "referralCode": "MOZ0S",
+    "otp": "654",
+    "uniqueCode": "6QDGL",
+    "date": "2024-11-26T17:08:26.422Z",
+    "balance": 0
+  },
+  {
+    "phone": "22609090900",
+    "email": "qwert@gmail.com",
+    "referralCode": "20JEM",
+    "otp": "12345",
+    "uniqueCode": "NAXFX",
+    "date": "2024-11-26T17:14:20.922Z",
+    "balance": 0
+  },
+  {
+    "phone": "22677777777",
+    "email": "asdfg@gmail.com",
+    "referralCode": "20JEM",
+    "otp": "2345",
+    "uniqueCode": "IMWOB",
+    "date": "2024-11-26T17:19:51.800Z",
+    "balance": 0
+  },
+  {
+    "phone": "22667676767",
+    "email": "kjhgf@gmail.com",
+    "referralCode": "D5ZAK",
+    "otp": "12345",
+    "uniqueCode": "605J9",
+    "date": "2024-11-26T18:25:51.725Z",
+    "balance": 0
+  },
+  {
+    "phone": "22656565656",
+    "email": "asdfgh@gmail.com",
+    "referralCode": "D5ZAK",
+    "otp": "123456",
+    "uniqueCode": "A93GA",
+    "date": "2024-11-27T06:50:14.072Z",
+    "balance": 0
+  },
+  {
+    "phone": "22687878787",
+    "email": "nbfd@gmail.com",
+    "referralCode": "MOZ0S",
+    "otp": "98765",
+    "uniqueCode": "8ZPSX",
+    "date": "2024-11-27T07:52:48.226Z",
+    "balance": 0
+  },
+  {
+    "phone": "22687878787",
+    "email": "nbfd@gmail.com",
+    "referralCode": "MOZ0S",
+    "otp": "98765",
+    "uniqueCode": "F3F2A",
+    "date": "2024-11-27T07:58:01.461Z",
+    "balance": 0
+  },
+  {
+    "phone": "22655555555",
+    "email": "dolhh@gmail.com",
+    "referralCode": "20JEM",
+    "otp": "13142",
+    "uniqueCode": "P8TID",
+    "date": "2024-11-27T08:43:44.104Z",
+    "balance": 0
+  },
+  {
+    "phone": "22607392728",
+    "email": "paleemmanuel968@gmail.com",
+    "referralCode": "20JEM",
+    "otp": "56701",
+    "uniqueCode": "XTCM9",
+    "date": "2024-11-27T09:17:20.478Z",
+    "balance": 0
+  }
+]

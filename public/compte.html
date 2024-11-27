@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Espace Parrainage</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('dollard.jpg');
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    header {
+      width: 100%;
+      background-color: rgba(0, 0, 51, 0.7); /* Fond semi-transparent */
+      padding: 15px 0;
+      text-align: center;
+      color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+
+    footer {
+      width: 100%;
+      background-color: rgba(0, 0, 51, 0.7);
+      padding: 10px 0;
+      text-align: center;
+      color: white;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .container {
+      width: 400px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 80px; /* Pour ne pas chevaucher le header */
+      margin-bottom: 80px; /* Pour ne pas chevaucher le footer */
+    }
+
+    h2, h3 {
+      color: #005c99;
+    }
+
+    .balance {
+      font-size: 24px;
+      color: #003366;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .info-section, .withdraw-section {
+      margin-bottom: 20px;
+      border-top: 1px solid #cce6ff;
+      padding-top: 10px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      color: #005c99;
+    }
+
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #cce6ff;
+      border-radius: 4px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #005c99;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #004080;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>CashFlow BOT</h1>
+  </header>
+
+  <!-- Container principal -->
+  <div class="container">
+    <h2>Mon Solde de Parrainage</h2>
+    <div class="balance">Solde : <span id="balance">0</span> f</div>
+
+    <div class="info-section">
+      <h3>Mes Informations</h3>
+      <p>Email : <span id="userEmail"></span></p>
+      <p>Numéro : <span id="userPhone"></span></p>
+      <p>Nombre d'inscriptions via mon code : <span id="referralCount">0</span></p>
+    </div>
+
+    <div class="withdraw-section">
+      <h3>Demande de Retrait</h3>
+      <form id="withdrawForm">
+        <label for="phone">Numéro Orange Burkina :</label>
+        <input type="text" id="phone" placeholder="226XXXXXXXX" required pattern="226[0-9]{8}">
+        
+        <label for="amount">Montant à retirer :</label>
+        <input type="number" id="amount" min="1000" placeholder="Minimum 1000 f" required>
+        
+        <button type="submit">Envoyer la demande</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 CashFlow BOT. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    // Récupération de l'URL actuelle pour extraire le numéro de téléphone
+    const urlParams = new URLSearchParams(window.location.search);
+    const phone = urlParams.get('phone');
+
+    if (!phone) {
+      alert("Erreur : Numéro de téléphone non fourni.");
+      window.location.href = "/login"; // Redirige vers la page de connexion si le téléphone est manquant
+    }
+
+    // Récupération des informations utilisateur depuis le backend
+    fetch(`/get-user-info?phone=${phone}`)
+      .then(response => {
+        if (!response.ok) throw new Error("Utilisateur non trouvé");
+        return response.json();
+      })
+      .then(data => {
+        // Mise à jour des données affichées
+        document.getElementById("balance").textContent = data.balance;
+        document.getElementById("userEmail").textContent = data.email;
+        document.getElementById("userPhone").textContent = data.phone;
+        document.getElementById("referralCount").textContent = data.referrals;
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Erreur lors de la récupération des données utilisateur.");
+        window.location.href = "/login"; // Redirige vers la page de connexion en cas d'erreur
+      });
+
+    // Gestion de la soumission du formulaire de retrait
+    document.getElementById("withdrawForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const amount = parseInt(document.getElementById("amount").value);
+
+      // Vérification des conditions
+      if (amount < 1000) {
+        alert("Le montant minimum de retrait est de 1000 f.");
+        return;
+      }
+
+      fetch("/withdraw", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ phone, amount }),
+      })
+        .then(response => {
+          if (!response.ok) throw new Error("Erreur lors de la demande de retrait.");
+          return response.json();
+        })
+        .then(data => {
+          alert(data.message);
+          document.getElementById("balance").textContent = data.balance; // Mise à jour du solde
+        })
+        .catch(err => {
+          console.error(err);
+          alert("Erreur lors de la demande de retrait.");
+        });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Inscription ou Connexion</title>
+    <style>
+        /* Styles existants */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('dollard.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #ffffff;
+        }
+
+        /* Header */
+        header {
+            width: 100%;
+            background-color: rgba(0, 0, 51, 0.7);
+            padding: 1rem;
+            text-align: center;
+            color: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        /* Container principal */
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            color: #00509e;
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin: 0.5rem 0;
+            color: #333333;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 0.75rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #dcdcdc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #00509e;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #003366;
+        }
+
+        /* Navbar (Router) */
+        nav {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #00509e;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #003366;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>CashFlow BOT</h1>
+    </header>
+
+    <!-- Container principale -->
+    <div class="container">
+        <h1>Bienvenue</h1>
+        <p>Inscrivez-vous ou connectez-vous si vous avez déjà un compte.</p>
+
+        <!-- Formulaire d'inscription -->
+        <form action="/register" method="POST">
+            <label for="phone">Numéro de téléphone (avec le code 226):</label>
+            <input type="text" id="phone" name="phone" required pattern="226\d{8}">
+        
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        
+            <label for="referralCode">Code de parrainage (optionnel):</label>
+            <input type="text" id="referralCode" name="referralCode">
+        
+            <label for="otp">OTP:</label>
+            <input type="text" id="otp" name="otp" required>
+        
+            <p>Pour obtenir le code OTP, composez <strong>*144*4*6*1000#</strong>.</p>
+        
+            <button type="submit">S'inscrire</button>
+        </form>
+        
+
+        <!-- Section pour la connexion -->
+        <div class="login-section">
+            <h2>Déjà un compte?</h2>
+            <button onclick="window.location.href='seconnecter.html'">Se connecter</button>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="seconnecter.html">Se connecter</a>
+        <a href="politique.html">Politique et confidentialité</a>
+    </nav>
+</body>
+</html>

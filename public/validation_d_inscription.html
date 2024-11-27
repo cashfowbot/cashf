@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmation de votre code</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .login-container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: center;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: #555;
+        text-align: left;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    .error {
+        color: red;
+        margin-top: 10px;
+    }
+
+    .success {
+        color: green;
+        margin-top: 10px;
+    }
+    countdown{
+      color: red;
+    }
+</style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Connexion</h1>
+    <form action="/login" method="POST">
+        <label for="phone">Numéro de téléphone :</label>
+        <input type="text" id="phone" name="phone" placeholder="Entrez votre numéro" required>
+        
+        <label for="code">Code unique :</label>
+        <input type="text" id="code" name="uniqueCode" placeholder="Entrez votre code unique" required>
+        
+        <button type="submit">Se connecter</button>
+    </form>
+    <div id="countdown"></div>
+</div>
+
+
+  <script>
+    let timeLeft = 5 * 60; // 5 minutes
+
+    const countdownElement = document.getElementById('countdown');
+
+    function updateCountdown() {
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      countdownElement.textContent = `Temps restant : ${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+
+      if (timeLeft <= 0) {
+        countdownElement.textContent = "Le temps est écoulé. Veuillez réessayer.";
+        clearInterval(countdownInterval);
+
+        // Bloquer le formulaire si le temps est écoulé
+        document.getElementById('confirmationForm').querySelector('button').disabled = true;
+      } else {
+        timeLeft--;
+      }
+    }
+
+    const countdownInterval = setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
